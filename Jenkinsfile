@@ -30,6 +30,13 @@ pipeline {
                }
             }
         }
+        stage('copy build file to docker context') {
+            steps {
+               script{
+                 sh "sudo cp /build/lib/spring-boot-with-prometheus-0.1.0.jar DOCKER/"
+               }
+            }
+        }
 
 
     }
