@@ -30,10 +30,27 @@ pipeline {
                }
             }
         }
+        stage('remove all jar from DOCKER') {
+            steps {
+               script{
+                 sh "sudo rm DOCKER/spring-boot-with-prometheus-0.1.0.jar"
+                 
+               }
+            }
+        }
         stage('copy build file to docker context') {
             steps {
                script{
-                 sh "sudo cp /var/lib/jenkins/workspace/full1/build/libs/spring-boot-with-prometheus-0.1.0.jar DOCKER/"
+                 sh "sudo cp /build/lib/spring-boot-with-prometheus-0.1.0.jar DOCKER/"
+
+               }
+            }
+        }
+        stage('bild docker image') {
+            steps {
+               script{
+                 sh "cd DOCKER ;sudo docker build -t narendar414/phpandapache ."
+
                }
             }
         }
