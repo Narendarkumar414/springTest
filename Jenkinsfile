@@ -39,7 +39,7 @@ pipeline {
                }
             }
         }
-        stage('bild docker image') {
+        stage('bild docker image and push to dockerhub') {
             steps {
                script{
                  sh "cd DOCKER ;sudo docker build -t narendar414/phpandapache:v_${BUILD_NUMBER} ."
