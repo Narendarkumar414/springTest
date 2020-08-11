@@ -34,7 +34,7 @@ pipeline {
         stage('copy build file to docker context') {
             steps {
                script{
-                 sh "sudo cp /var/lib/jenkins/workspace/full1/build/libs/spring-boot-with-prometheus-0.1.0.jar DOCKER/"
+                 sh "sudo cp /var/lib/jenkins/workspace/p1/build/libs/spring-boot-with-prometheus-0.1.0.jar DOCKER/"
 
                }
             }
